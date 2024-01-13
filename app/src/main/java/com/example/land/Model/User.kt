@@ -1,6 +1,8 @@
 package com.example.land.Model
 
-class User(val profile: Int, val  name: String, val price:String, val floor: Int) {
+import java.io.Serializable
+
+class User(val profile: Int, val  name: String, val price:String, val floor: Int):Serializable {
     fun getFormattedFloor():String{
         val floor = this.floor
         if (floor>10){

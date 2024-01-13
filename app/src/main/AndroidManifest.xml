@@ -16,6 +16,9 @@
             android:name=".Activities.RoomViewActivity"
             android:exported="false" />
         <activity
+            android:name=".RoomViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.ViewRoomActivity2"
             android:exported="false" />
         <activity

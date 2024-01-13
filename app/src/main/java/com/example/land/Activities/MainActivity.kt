@@ -1,10 +1,12 @@
 package com.example.land.Activities
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.land.Adapters.UserAdpater
 import com.example.land.Model.User
 import com.example.land.R
+import com.example.land.RoomViewActivity
 import com.example.land.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         User(R.drawable.roop, "갈산동 원룸", "5천만원",7),
 
     )
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,15 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "${clicked.name}이 클릭됨!", Toast.LENGTH_SHORT).show()
             Toast.makeText(this, clicked.getFormattedFloor(), Toast.LENGTH_SHORT).show()
         }
+        binding.listView.setOnItemClickListener { parent, view, position, id ->
 
-    }
+            val clickedRoom = UserList[position]
+            val myIntent = Intent(this, RoomViewActivity::class.java )
+            myIntent.putExtra("room", clickedRoom)
+            startActivity(myIntent)
+        }
+        }
+
+
+
 }
